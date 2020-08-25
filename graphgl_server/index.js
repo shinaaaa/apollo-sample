@@ -4,6 +4,5 @@ import resolvers from "./graphql/resolvers";
 const server = new GraphQLServer({
   typeDefs: "graphql/schema.graphql",
   resolvers,
-  test,
 });
 server.start(() => console.log("Server is running on localhost:4000"));
