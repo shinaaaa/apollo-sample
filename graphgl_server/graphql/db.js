@@ -1,13 +1,34 @@
-export const people = [
-  { id: "0", name: "흥부", age: 67, gender: "male" },
-  { id: "1", name: "심봉사", age: 67, gender: "male" },
-  { id: "2", name: "심청이", age: 20, gender: "female" },
-  { id: "3", name: "홍길동", age: 23, gender: "male" },
-  { id: "4", name: "콩쥐", age: 21, gender: "female" },
+let movies = [
+  { id: "0", name: "흥부", score: 67 },
+  { id: "1", name: "심봉사", score: 67 },
+  { id: "2", name: "심청이", score: 20 },
+  { id: "3", name: "홍길동", score: 23 },
+  { id: "4", name: "콩쥐", score: 21 },
 ];
 
-export const getbyId = (id) => {
-  const filteredPeople = people.filter((person) => person.id === String(id));
-  return filteredPeople[0];
+export const getMovies = () => movies;
+
+export const getById = (id) => {
+  const filteredMovies = movies.filter((movie) => movie.id === String(id));
+  return filteredMovies[0];
 };
- 
+
+export const deleteMovies = (id) => {
+  const cleanedMovies = movies.filter((movie) => movie.id !== String(id));
+  if (movies.length > cleanedMovies.length) {
+    movies = cleanedMovies;
+    return true;
+  } else {
+    return false;
+  }
+};
+
+export const addMovie = (name, score) => {
+  const newMovie = {
+    id: `${movies.length + 1}`,
+    name,
+    score,
+  };
+  movies.push(newMovie);
+  return newMovie;
+};
